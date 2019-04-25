@@ -10,17 +10,17 @@ We will use recursion to accomplish this. Suppose we already know how to constru
 `01`  
 `10`  
 `11`  
-Now if we insert `0` at the begining of all these strings we still have a valid gray code because they will still only differ on one bit (which they did before). But now we have *n* bit strings and we have already got half the required strings for *n* bit.  
+Now if we insert `0` at the beginning of all these strings we still have a valid gray code because they will still only differ on one bit (which they did before). But now we have *n* bit strings and we have already got half the required strings for *n* bit.  
 `000`  
 `001`  
 `010`  
 `011`  
-How do we construct the other half? Well that's easy. We just add `1` at the begining now.  
+How do we construct the other half? Well that's easy. We just add `1` at the beginning now.  
 `100`  
 `101`  
 `110`  
 `111`  
-Are we done? If we just concatanate the above two lists we have  
+Are we done? If we just concatenate the above two lists we have  
 **`000`**  
 `001`  
 `010`  
@@ -29,7 +29,7 @@ Are we done? If we just concatanate the above two lists we have
 `101`  
 `110`  
 **`111`**  
-We have more than one bit difference in bold positions (first and last string also count). In fact they differ in all three positions (`000<->111, 011<->100`). How do we fix this? Let's see what we know to be true so far. If we consider the list elements (I am going to use `0` based indexing so `000` is at index `0`, `001` is at index `1` and so on) we know these two sublists are already valid code `[0, 1, 2, 3], [4, 5, 6, 7]`. Now consider first elements of each list (that is `000` and `100`). To construct them we started with **same** string from the `n-1` bit code and for first one we added `0` and for the second one we added `1`. So these two also differ in only `1` bit position. Similarly it is true for last elements of two lists (`011` and `111`). So we know `[0, 1, 2, 3], [4, 5, 6, 7], [0, 4], [3, 7]` are all valid codes. I think at this point it quite obvious what we need to do. If we reverse the second list and concatanate it with first list we get `[0, 1, 2, 3, 7, 6, 5, 4]`. Here `3` is followed by `7` and `4` is followed by `0` (in circular sense) which are valid code. Rest of the list were already valid code. So we have actually generated a valid `3` bit gray code.  
+We have more than one bit difference in bold positions (first and last string also count). In fact they differ in all three positions (`000<->111, 011<->100`). How do we fix this? Let's consider first elements of each half (that is `000` and `100`). To construct them we started with **same** string from the `n-1` bit code. For first one we added `0` and for the second one we added `1`. So these two differ in only `1` bit position. Similarly it is true for last elements of each half (`011` and `111`). I think at this point it quite obvious what we need to do. If we reverse the second half and concatenate it with first half we get `111` followed by `100` and last string becomes `100`. So we have managed to fix both the discrepancies we had before. As such we have actually generated a valid `3` bit gray code.  
 `000`  
 `001`  
 `010`  
