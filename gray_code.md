@@ -21,7 +21,7 @@ How do we constructing the other half? Well that's easy. We just add `1` at the 
 `110`  
 `111`  
 Are we done? If we just concatanate the above two lists we have  
-`**000**`  
+`__000__`  
 `001`  
 `010`  
 `**011**`  
