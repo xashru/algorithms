@@ -15,7 +15,7 @@ Now if we insert `0` at the begining of all these strings we still have a valid 
 `001`  
 `010`  
 `011`  
-How do we constructing the other half? Well that's easy. We just add `1` at the begining now.  
+How do we construct the other half? Well that's easy. We just add `1` at the begining now.  
 `100`  
 `101`  
 `110`  
